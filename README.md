@@ -1,7 +1,11 @@
 # django-debitcredit
 DebitCredit with Django ORM
 
+Documentation from Postgres about how/why it works
 https://www.postgresql.org/docs/current/transaction-iso.html#XACT-READ-COMMITTED
+
+And my presentation about the topic:
+https://2023.djangoday.dk/talks/aivars/
 
 ```
 root@1fe9bdd54e32:/app# python3 manage.py shell
