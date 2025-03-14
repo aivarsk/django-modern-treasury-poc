@@ -13,10 +13,20 @@ This is a simple PoC without bells and whistles and I am skipping "pending balan
 
 As promised in https://aivarsk.com/2023/11/04/re-double-entry-accounting-at-scale/
 
-Following the https://docs.moderntreasury.com/ledgers/docs/digital-wallet-tutorial
+Following the https://docs.moderntreasury.com/ledgers/docs/digital-wallet-tutorial and getting around 200 ledger entries per second in my single-threaded low-end setup.
+
+```
+root@c6caa1bea9a1:/app# python3 manage.py shell
+Python 3.12.4 (main, Aug  2 2024, 14:41:31) [GCC 12.2.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from debitcredit.models import *
+>>> run(1000)
+3000 transfers in 13.226809740066528 seconds and 226.81206269357818 tps
+>>>
+```
 
 -----------------------------------------
-
 
 Documentation from Postgres about how/why it works
 https://www.postgresql.org/docs/current/transaction-iso.html#XACT-READ-COMMITTED
@@ -24,15 +34,3 @@ https://www.postgresql.org/docs/current/transaction-iso.html#XACT-READ-COMMITTED
 And my presentation about the topic:
 https://2023.djangoday.dk/talks/aivars/
 
-```
-root@1fe9bdd54e32:/app# python3 manage.py shell
-Python 3.12.4 (main, Aug  2 2024, 14:41:31) [GCC 12.2.0] on linux
-Type "help", "copyright", "credits" or "license" for more information.
-(InteractiveConsole)
->>> from debitcredit.models import *
->>> a1 = Account.objects.create(balance=100)
->>> a2 = Account.objects.create(balance=100)
->>> run(a1, a2, 1000)
-2000 transfers in 8.460346221923828 seconds and 236.39694494029973 tps
->>>
-```
