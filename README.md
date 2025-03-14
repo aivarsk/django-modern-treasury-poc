@@ -13,6 +13,8 @@ This is a simple PoC without bells and whistles and I am skipping "pending balan
 
 As promised in https://aivarsk.com/2023/11/04/re-double-entry-accounting-at-scale/
 
+Following the https://docs.moderntreasury.com/ledgers/docs/digital-wallet-tutorial
+
 -----------------------------------------
 
 
